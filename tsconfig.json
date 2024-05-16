@@ -1,4 +1,7 @@
 {
+  "typeAcquisition": {
+    "include": ["jest"]
+  },
   "compilerOptions": {
     "target": "es2015",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -18,10 +21,12 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts","src/**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts","**/*.js", "**/*.tsx", ".next/types/**/*.ts","src/**/*.tsx"],
   "exclude": ["node_modules"]
 }

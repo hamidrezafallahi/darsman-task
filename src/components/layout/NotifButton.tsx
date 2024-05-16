@@ -1,6 +1,6 @@
+'use client'
 import { Observer } from '@/types';
 import React from 'react'
-
 export default function NotifButton() {
     const notif = () => {
         Notification.requestPermission().then((perm) => {
