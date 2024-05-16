@@ -23,7 +23,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header/>
         <HydrationZustand>{children}</HydrationZustand>
-
       </body>
     </html>
   );

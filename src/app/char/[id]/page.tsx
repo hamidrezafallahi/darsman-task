@@ -6,15 +6,6 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-export const fetchTarget = async (id: number,setChar:any) => {
-  const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
-  const resdata = await res.json();
-  setChar(resdata);
-};
-
-
-
  function PhotoPage({
   params: { id },
 }: {
@@ -28,8 +19,11 @@ export const fetchTarget = async (id: number,setChar:any) => {
   const [char, setChar] = useState<ICharacter>();
   const allEpisodes = useStore.getState().episode;
 
-
-
+  const fetchTarget = async (id: number) => {
+    const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+    const resdata = await res.json();
+    setChar(resdata);
+  };
   const fetchEpisode = async () => {
     const res = await fetch(episode);
     const resultdata = await res.json();
@@ -54,7 +48,7 @@ export const fetchTarget = async (id: number,setChar:any) => {
     fetchEpisode();
   }, [episode]);
   useEffect(() => {
-    fetchTarget(Number(id),setChar);
+    fetchTarget(Number(id));
   }, []);
   useEffect(()=>{},[episodeDataCharacterUrls])
   return (
